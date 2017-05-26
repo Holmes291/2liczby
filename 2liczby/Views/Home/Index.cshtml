@@ -1,92 +1,80 @@
-﻿@model _2liczby.Models.MLicz
-
+﻿﻿@model _2liczby.Models.MLicz
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
     <style>
-        .styl1{
-           background-image:url(../../Images/math1.jpg);
-           color:black;
-           font-weight:bold;
+        .styl1 {
+            background-image: url(../../Images/math1.jpg);
+            color: black;
+            font-weight: bold;
         }
 
-        .prawo{
-            text-align:right;
-<<<<<<< HEAD
-            padding-right:0;
-=======
-            
->>>>>>> b5034f0aadc22fc512dee74fccb6f70e011dd08d
-            padding-top:20px;
+        .prawo {
+            text-align: right;
+            padding-top: 20px;
             height: 75px;
         }
-        .lewo{
-            text-align:left;
-            padding-left:0;
-            padding-top:20px;
+
+        .lewo {
+            text-align: left;
+            padding-left: 0;
+            padding-top: 20px;
             height: 75px;
         }
-        .srodek{
+
+        .srodek {
             height: 120px;
-            padding-top:20px;
-        }
-        .scroll
-        {
-            overflow-y:hidden;
-            width:200px;
-            text-align:center;
-        }
-        .ukroc{
-            width:200px;
-        }
-        .tlo{
-            background-image:url(../../Images/math.jpg);
-            color:#47b2f6;
-            text-align:center;
-
+            padding-top: 20px;
         }
 
+        .scroll {
+            overflow-y: hidden;
+            width: 200px;
+            text-align: center;
+        }
+
+        .ukroc {
+            width: 200px;
+        }
+
+        .tlo {
+            background-image: url(../../Images/math.jpg);
+            color: #47b2f6;
+            text-align: center;
+        }
     </style>
-
- <!--include jQuery -->
+    <!--include jQuery -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
             type="text/javascript"></script>
     <!--include jQuery Validation Plugin-->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
-            type="text/javascript"></script>  
+            type="text/javascript"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js">
     </script>
-     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.js">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.js">
     </script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js">
     </script>
-
     <title>Index</title>
 </head>
 <body>
-
     wersja beta, styl bedzie zmieniony
 
     <div class="container-fluid styl1">
-
         <div class="jumbotron tlo"><h1>Oblicz</h1></div>
 
-       
-            <form action="Index" Id="jeden" method="post"> 
+        <form action="Index" Id="jeden" method="post">
             <div class="row srodek">
-                    @Html.DropDownListFor(a => a.coMaByc, new[]
+                @Html.DropDownListFor(a => a.coMaByc, new[]
           {
               new SelectListItem() { Text = "suma"},
               new SelectListItem() { Text = "roznica"},
@@ -94,27 +82,25 @@
               new SelectListItem() { Text = "iloraz"}
 
           },
-          new {multiple="true",@class = "form-control scroll col-md-2 col-md-push-5 col-xs-push-5" }
+          new { multiple = "true", @class = "form-control scroll col-md-2 col-md-push-5 col-xs-push-5" }
 
 )
             </div>
             <div class="row">
-                
-                <div class="col-md-2 col-md-push-5 col-xs-push-5 lewo">Liczba1: @Html.TextBoxFor(a => a.liczba1, new { @class="form-control ukroc" })</div>
-            
-            </div>
 
+                <div class="col-md-2 col-md-push-5 col-xs-push-5 lewo">Liczba1: @Html.TextBoxFor(a => a.liczba1, new { @class = "form-control ukroc" })</div>
+
+            </div>
 
             <div class="row">
-                
-                <div class="col-md-2 col-md-push-5 col-xs-push-5 lewo">Liczba2: @Html.TextBoxFor(a => a.liczba2, new {@class="form-control ukroc" })</div>
-            
-            </div>
 
+                <div class="col-md-2 col-md-push-5 col-xs-push-5 lewo">Liczba2: @Html.TextBoxFor(a => a.liczba2, new { @class = "form-control ukroc" })</div>
+
+            </div>
 
             <div class="row srodek">
                 <input type="submit" class="col-md-1 col-md-push-5 col-xs-push-5 btn btn-primary btn-lg" value="wyślij">
-                     <script>
+                <script>
 $("#jeden").validate({
 rules:{
 liczba1:{
@@ -134,7 +120,7 @@ liczba2:"Wpisz liczbe"
 $("#jeden").validate();</script>
             </div>
         </form>
-   
+
         <div class="row">
             @{
                 if (IsPost)
@@ -162,6 +148,5 @@ $("#jeden").validate();</script>
             }
         </div>
     </div>
-
 </body>
 </html>
