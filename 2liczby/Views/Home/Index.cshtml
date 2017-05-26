@@ -1,0 +1,122 @@
+﻿@model _2liczby.Models.MLicz
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .styl1{
+            text-align:center;
+        }
+
+        .prawo{
+            text-align:right;
+            padding-right: 10px;
+            padding-top:20px;
+            height: 75px;
+        }
+        .lewo{
+            text-align:left;
+            padding-left: 10px;
+            padding-top:20px;
+            height: 75px;
+        }
+        .srodek{
+            height: 75px;
+            padding-top:20px;
+        }
+        .k1{
+            background-color:#FFE5B4;
+        }
+        .k2{
+            background-color:#FFFFD2;
+        }
+
+    </style>
+
+
+    <title>Index</title>
+</head>
+<body>
+
+    wersja beta, styl bedzie zmieniony
+
+    <div class="container-fluid styl1">
+
+        <div class="jumbotron"><h1>Oblicz</h1></div>
+
+        @using (Html.BeginForm())
+            {
+            <div class="row srodek k1">
+                    @Html.DropDownListFor(a => a.coMaByc, new[]
+          {
+              new SelectListItem() { Text = "suma"},
+              new SelectListItem() { Text = "roznica"},
+              new SelectListItem() { Text = "iloczyn"},
+              new SelectListItem() { Text = "iloraz"}
+
+          }
+
+          )
+            </div>
+            <div class="row k2">
+                <div class="col-md-6 prawo">Liczba1</div>
+                
+                <div class="col-md-6 lewo">@Html.TextBoxFor(a => a.liczba1)</div>
+            
+            </div>
+
+
+            <div class="row k1">
+                
+                <div class="col-md-6 prawo">Liczba2</div>
+                
+                <div class="col-md-6 lewo">@Html.TextBoxFor(a => a.liczba2)</div>
+            
+            </div>
+
+
+            <div class="row srodek k2">
+                <input type="submit" value="wyślij">
+            </div>
+        }
+        <div class="row">
+            @{
+                if (IsPost)
+                {
+                    if (@Model.dziaba == 0)
+                    {
+                        <div class="alert alert-success">
+                            Wynik: @Model.wynik
+                        </div>
+                    }
+                    else if (@Model.dziaba == 1)
+                    {
+                        <div class="alert alert-warning">
+                            Podano nieodpowiednie dane
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">
+                            Nie wolno dzielic przez 0
+                        </div>
+                    }
+
+                }
+            }
+        </div>
+    </div>
+
+</body>
+</html>
