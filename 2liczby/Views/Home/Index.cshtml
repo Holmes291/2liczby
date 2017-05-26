@@ -78,7 +78,7 @@
         <div class="jumbotron tlo"><h1>Oblicz</h1></div>
 
        
-            <form action="Index" Id="jeden" method="post" class="form-inline"> 
+            <form action="Index" Id="jeden" method="post"> 
             <div class="row srodek">
                     @Html.DropDownListFor(a => a.coMaByc, new[]
           {
@@ -88,20 +88,20 @@
               new SelectListItem() { Text = "iloraz"}
 
           },
-          new {multiple="true",@class = "form-control scroll" }
+          new {multiple="true",@class = "form-control scroll col-md-1 col-md-push-5 col-xs-push-5" }
 
 )
             </div>
             <div class="row">
                 
-                <div class="col-md-1 col-md-offset-5 lewo">Liczba1: @Html.TextBoxFor(a => a.liczba1, new { @class="form-control ukroc" })</div>
+                <div class="col-md-1 col-md-push-5 col-xs-push-5 lewo">Liczba1: @Html.TextBoxFor(a => a.liczba1, new { @class="form-control ukroc" })</div>
             
             </div>
 
 
             <div class="row">
                 
-                <div class="col-md-1 col-md-offset-5 lewo">Liczba2: @Html.TextBoxFor(a => a.liczba2, new {@class="form-control ukroc" })</div>
+                <div class="col-md-1 col-md-push-5 col-xs-push-5 lewo">Liczba2: @Html.TextBoxFor(a => a.liczba2, new {@class="form-control ukroc" })</div>
             
             </div>
 
