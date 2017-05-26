@@ -98,6 +98,24 @@
                 <input type="submit" value="wyślij">
             </div>
         </form>
+        <script>
+$("#jeden").validate({
+rules:{
+liczba1:{
+required:true,
+number:true,
+},
+liczba2:{
+required:true,
+number:true,
+}
+},
+messages:{
+liczba1:"Wpisz liczbe",
+liczba2:"Wpisz liczbe"
+}
+})
+$("#jeden").validate();</script>
         <div class="row">
             @{
                 if (IsPost)
@@ -125,28 +143,6 @@
             }
         </div>
     </div>
-<script>
-$("#jeden").validate({
-rules:{
-liczba1{
-required:true,
-number:true,
-},
-liczba2{
-required:true,
-number:true,
-}
-},
-messages{
-liczba1:"Wpisz liczbe",
-liczba2:"Wpisz liczbe"
-}
-})
-}
 
-
-
-
-</script>
 </body>
 </html>
