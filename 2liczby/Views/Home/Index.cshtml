@@ -8,6 +8,14 @@
 
 <html>
 <head>
+     <!--include jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+            type="text/javascript"></script>
+    <!--include jQuery Validation Plugin-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+            type="text/javascript"></script>  
+    <script src="~/Scripts/jquery.validate.unobtrusive.js">
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -49,14 +57,14 @@
 </head>
 <body>
 
-    wersja beta, styl bedzie zmieniony xD
+    wersja beta, styl bedzie zmieniony
 
     <div class="container-fluid styl1">
 
         <div class="jumbotron"><h1>Oblicz</h1></div>
 
-        @using (Html.BeginForm())
-            {
+       
+            <form action="Index" Id="jeden" method="post"> 
             <div class="row srodek k1">
                     @Html.DropDownListFor(a => a.coMaByc, new[]
           {
@@ -67,7 +75,7 @@
 
           }
 
-          )
+          
             </div>
             <div class="row k2">
                 <div class="col-md-6 prawo">Liczba1</div>
@@ -89,7 +97,7 @@
             <div class="row srodek k2">
                 <input type="submit" value="wyślij">
             </div>
-        }
+        </form>
         <div class="row">
             @{
                 if (IsPost)
@@ -117,6 +125,28 @@
             }
         </div>
     </div>
+<script>
+$("#jeden").validate({
+rules:{
+liczba1{
+required:true,
+number:true,
+},
+liczba2{
+required:true,
+number:true,
+}
+},
+messages{
+liczba1:"Wpisz liczbe",
+liczba2:"Wpisz liczbe"
+}
+})
+}
 
+
+
+
+</script>
 </body>
 </html>
