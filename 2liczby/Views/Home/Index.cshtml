@@ -18,6 +18,7 @@
     <style>
         .styl1{
             text-align:center;
+            background-color:lightblue;
         }
 
         .prawo{
@@ -33,14 +34,22 @@
             height: 75px;
         }
         .srodek{
-            height: 75px;
+            height: 120px;
             padding-top:20px;
         }
-        .k1{
-            background-color:#FFE5B4;
+        .scroll
+        {
+            overflow-y:hidden;
+            width:200px;
+            text-align:center;
         }
-        .k2{
-            background-color:#FFFFD2;
+        .ukroc{
+            width:200px;
+        }
+        .tlo{
+            background-image:url(../../Images/math.jpg);
+            color:#47b2f6;
+
         }
 
     </style>
@@ -66,11 +75,11 @@
 
     <div class="container-fluid styl1">
 
-        <div class="jumbotron"><h1>Oblicz</h1></div>
+        <div class="jumbotron tlo"><h1>Oblicz</h1></div>
 
        
-            <form action="Index" Id="jeden" method="post"> 
-            <div class="row srodek k1">
+            <form action="Index" Id="jeden" method="post" class="form-inline"> 
+            <div class="row srodek">
                     @Html.DropDownListFor(a => a.coMaByc, new[]
           {
               new SelectListItem() { Text = "suma"},
@@ -78,29 +87,30 @@
               new SelectListItem() { Text = "iloczyn"},
               new SelectListItem() { Text = "iloraz"}
 
-          }
+          },
+          new {multiple="true",@class = "form-control scroll" }
 
-          )
+)
             </div>
-            <div class="row k2">
+            <div class="row">
                 <div class="col-md-6 prawo">Liczba1</div>
                 
-                <div class="col-md-6 lewo">@Html.TextBoxFor(a => a.liczba1)</div>
+                <div class="col-md-6 lewo">@Html.TextBoxFor(a => a.liczba1, new { @class="form-control ukroc" })</div>
             
             </div>
 
 
-            <div class="row k1">
+            <div class="row">
                 
                 <div class="col-md-6 prawo">Liczba2</div>
                 
-                <div class="col-md-6 lewo">@Html.TextBoxFor(a => a.liczba2)</div>
+                <div class="col-md-6 lewo">@Html.TextBoxFor(a => a.liczba2, new {@class="form-control ukroc" })</div>
             
             </div>
 
 
-            <div class="row srodek k2">
-                <input type="submit" value="wyślij">
+            <div class="row srodek">
+                <input type="submit" class="btn btn-primary btn-lg" value="wyślij">
                      <script>
 $("#jeden").validate({
 rules:{
